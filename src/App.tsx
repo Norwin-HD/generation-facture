@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+
+import InvoiceForm from "./invoice/components/invoiceForm";
+import InvoicePreview from "./invoice/components/invoicePreview";
+import InvoiceData from "./invoice/types/invoiceData";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [invoice, setInvoice] = useState<InvoiceData>({
+    invoiceNumber: "P-01",
+    date: new Date().toISOString().split("T")[0],
+    billerName: { id: crypto.randomUUID(), name: "", identity: "", email: "" },
+    clientName: { id: crypto.randomUUID(), name: "", email: "" },
+    items: [
+      {
+        id: crypto.randomUUID(),
+        description: "",
+        cant: 1,
+        unit_price: 0,
+        discount: 0,
+        subtotal: 0,
+      },
+    ],
+    taxRate: 15,
+  });
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="absolute grid grid-cols-2 inset-0">
+        <div className=" bg-slate-700">
+          <InvoiceForm invoice={invoice} setInvoice={setInvoice} />
+        </div>
+        <div className="bg-white">
+          <InvoicePreview invoice={invoice}/>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,5 @@
 interface DetailProducts {
+  id: string;
   description: string;
   cant: number;
   unit_price: number;

@@ -5,8 +5,8 @@ import Issuer from "./issuer";
 interface InvoiceData {
   invoiceNumber: string;
   date: string;
-  billerName: Issuer[];
-  clientName: Client[];
+  billerName: Issuer;
+  clientName: Client;
   items: DetailProducts[];
   taxRate: number;
 }

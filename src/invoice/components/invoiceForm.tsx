@@ -144,7 +144,7 @@ export default function InvoiceForm({ invoice, setInvoice }: Props) {
               return (
                 <div
                   key={product.id}
-                  className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-white p-3 md:p-0 rounded border md:border-none border-slate-200"
+                  className="grid grid-cols-1 md:grid-cols-13 gap-4 items-center bg-white p-3 md:p-0 rounded border md:border-none border-slate-200"
                 >
                   <div className="col-span-5">
                     <input
@@ -191,7 +191,7 @@ export default function InvoiceForm({ invoice, setInvoice }: Props) {
                     />
                   </div>
 
-                  <div className="col-span-2 flex items-center gap-2">
+                  <div className="col-span-3 md:col-span-3 flex items-center gap-2">
                     <input
                       type="number"
                       min="0"
@@ -215,7 +215,7 @@ export default function InvoiceForm({ invoice, setInvoice }: Props) {
                     <button
                       type="button"
                       onClick={() => removeProduct(product.id)}
-                      className="text-red-500 hover:text-red-700 font-bold p-2"
+                      className="text-red-500 hover:text-red-700 font-bold p-2 ml-4"
                       title="Eliminar fila"
                     >
                       X

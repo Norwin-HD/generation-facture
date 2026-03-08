@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <div className="absolute grid grid-cols-2 inset-0">
+      <div className="absolute grid grid-cols-1 sm:grid-cols-2 inset-0">
         <div className=" bg-slate-700">
           <InvoiceForm invoice={invoice} setInvoice={setInvoice} />
         </div>
